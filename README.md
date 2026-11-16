@@ -20,13 +20,17 @@ npm run preview
 
 ## Put it on your iPhone
 
-The app needs to be served over HTTPS before iOS will install it.
+The app needs to be served over HTTPS before iOS will install it. This repo publishes itself to
+GitHub Pages: every push to `main` runs `.github/workflows/deploy.yml`, which lints, tests, builds
+and deploys `dist/`.
 
-1. Deploy the `dist/` folder (created by `npm run build`) to any static host — Netlify, Vercel,
-   Cloudflare Pages and GitHub Pages all have free tiers. The build uses relative paths, so it works
-   at a domain root or in a sub-folder.
-2. Open the site in **Safari** on the iPhone.
+1. One-time setup: repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+2. Open the site in **Safari** on the iPhone. For a project site the address is
+   `https://<github-username>.github.io/the-muslim-man-life-os/`.
 3. Tap **Share → Add to Home Screen**.
+
+Any other static host works too (Netlify, Vercel, Cloudflare Pages): build with `npm run build` and
+serve `dist/`. The build uses relative paths, so it runs at a domain root or in a sub-folder.
 
 Open it once while online so it can save itself and this month's prayer times. After that it launches
 with no connection.

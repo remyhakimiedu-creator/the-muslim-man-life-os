@@ -30,6 +30,11 @@ body-recomposition analytics, and a daily character (Al-Muru'ah) review.
 
 Run lint, unit tests, build and e2e before calling any change finished.
 
+## Deployment
+Every push to `main` deploys to GitHub Pages via `.github/workflows/deploy.yml` (lint → unit tests →
+build → publish `dist/`). The site lives in a sub-folder (`/the-muslim-man-life-os/`), so keep every
+URL relative (`base: './'`, `./manifest.json`, `./sw.js`) — an absolute `/path` breaks the install.
+
 ## Architecture
 - `src/App.jsx` — shell: header, 4 tabs (Today · Workout · Progress · Al-Muru'ah), tab bar. Settings
   ("Routine & Data") open from the gear as a bottom sheet so the bar stays at four tabs.
